@@ -41,7 +41,7 @@ public class Main {
             SimpleColor color = picture.getColor(point);
             SimpleColor rightColor = testing.getRightColor();
 
-            boolean check = checkResult(color, rightColor);
+            boolean check = checkIndicator(color, rightColor);
             indicator = check && indicator;
 
             printTest(color, rightColor, point, indicator);
@@ -49,7 +49,7 @@ public class Main {
         return indicator;
     }
 
-    private static boolean checkResult(SimpleColor color, SimpleColor rightColor) {
+    private static boolean checkIndicator(SimpleColor color, SimpleColor rightColor) {
         return color == rightColor;
     }
 
