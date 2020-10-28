@@ -14,7 +14,7 @@ public class Main {
 
         System.out.println("                         TEST");
         if (testPoints(picture)) {
-            start(picture);
+            startProgram(picture);
         } else {
             System.out.println("The program is not working correctly!");
         }
@@ -41,19 +41,17 @@ public class Main {
             SimpleColor color = picture.getColor(point);
             SimpleColor rightColor = testing.getRightColor();
 
-            boolean check = checkIndicator(color, rightColor);
-            indicator = check && indicator;
-
-            printTest(color, rightColor, point, indicator);
+            if (color == rightColor) {
+                printTest(color, rightColor, point, "TRUE");
+            } else {
+                printTest(color, rightColor, point, "FALSE");
+                indicator = false;
+            }
         }
         return indicator;
     }
 
-    private static boolean checkIndicator(SimpleColor color, SimpleColor rightColor) {
-        return color == rightColor;
-    }
-
-    private static void start(Picture picture) {
+    private static void startProgram(Picture picture) {
         double x = readDouble("x = ");
         double y = readDouble("y = ");
 
@@ -69,7 +67,7 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    private static void printTest(SimpleColor color, SimpleColor rightColor, Point point, boolean indicator) {
+    private static void printTest(SimpleColor color, SimpleColor rightColor, Point point, String indicator) {
         System.out.println("(" + point.getX() + ";" + point.getY() + ") --> " + color +
                 ". Right color --> " + rightColor + ". " + indicator);
     }
