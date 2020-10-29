@@ -32,7 +32,7 @@ public class Main {
                 new TestCase(0, 8, SimpleColor.ORANGE),
                 new TestCase(-2, -2, SimpleColor.GREEN)};
 
-        boolean indicator = true;
+        boolean testResult = true;
         for (int i = 0; i < cases.length; i++) {
 
             TestCase testing = cases[i];
@@ -42,13 +42,13 @@ public class Main {
             SimpleColor rightColor = testing.getRightColor();
 
             if (color == rightColor) {
-                printTest(color, rightColor, point, "TRUE");
+                printTestCase(color, rightColor, point, "TRUE");
             } else {
-                printTest(color, rightColor, point, "FALSE");
-                indicator = false;
+                printTestCase(color, rightColor, point, "FALSE");
+               testResult = false;
             }
         }
-        return indicator;
+        return testResult;
     }
 
     private static void startProgram(Picture picture) {
@@ -67,9 +67,9 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    private static void printTest(SimpleColor color, SimpleColor rightColor, Point point, String indicator) {
+    private static void printTestCase(SimpleColor color, SimpleColor rightColor, Point point, String testResult) {
         System.out.println("(" + point.getX() + ";" + point.getY() + ") --> " + color +
-                ". Right color --> " + rightColor + ". " + indicator);
+                ". Right color --> " + rightColor + ". " + testResult);
     }
 
     private static void printColorForPoint(double x, double y, SimpleColor color) {
